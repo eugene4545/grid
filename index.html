@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css-grid</title>
+</head>
+<body>
+    <style>
+        .nav-box>*{
+            color: black;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: minmax(50px, auto);
+            gap: 2em;
+
+        }
+        .boxes{
+            background-color: deeppink;
+            list-style: none;
+            padding: 2em;
+        }
+           /*this works because the wrapper is a direct parent of the child (.col)divs.*/ 
+          /* as i selected wrapper>* it didnt work */
+           .wrapper{
+           display: grid;
+           grid-template-columns:  1fr 1fr 1fr 1fr;
+           justify-items: stretch;
+           align-items: center;
+           gap: 1em;
+        }
+          .col{
+            padding: 2em;
+            background-color: antiquewhite;
+
+          }
+          
+          .nest{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+          }
+
+          #col1{
+            grid-column: 2/4;
+            grid-row: 1/4;
+          }
+
+
+          
+        
+    </style>
+   <header>
+    <div class="nav-box">
+            <ul>
+                <li class="boxes" >Home</li>
+                <li class="boxes">example 2</li>
+                <li class="boxes">example 3</li>
+                <li class="boxes">example 4</li>
+            </ul>
+    </div>
+   </header>
+   <main>
+    <div class="wrapper">               
+    
+    <div class="col" id="col1" >21Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil exercitationem asperiores numquam labore est excepturi mollitia temp</div>
+    <div class="col">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta pariatur similique quaerat molestias eaque ipsum laboriosam deserunt, min</div>
+    <div class="col">  <div class="nest"> 
+        <li>lorem</li>
+        <li>lorem</li>
+        <li>lorem</li>
+        <li>lorem</li>
+        <li>lorem</li>
+        <li>lorem</li>
+        </div></div>
+      
+    <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias minima maiores possimus magni </div>
+   </div>
+</main>
+</body>
+</html>
